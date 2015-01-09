@@ -1,3 +1,6 @@
+let s:local_edit_mode = 'tabedit'
+let s:notes_dir = '~/Dropbox/notes'
+
 function! dropnote#mkblog()
     call dropnote#mknoteinput('blog','blog')
 endfunction
@@ -62,3 +65,4 @@ function! dropnote#mkbasesubex(infilename,cate,subcate,ex)
     endif
     execute s:local_edit_mode . ' ' . l:path 
 endfunction
+
