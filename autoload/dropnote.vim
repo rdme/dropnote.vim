@@ -1,6 +1,12 @@
 let s:local_edit_mode = 'tabedit'
 let s:notes_dir = '~/Dropbox/notes'
 
+function! s:mkdirifnoex(dir)
+    if !isdirectory(a:dir)
+        call mkdir(a:dir, 'p')
+    endif
+endfunction
+
 function! dropnote#mkblog()
     call dropnote#mknoteinput('blog','blog')
 endfunction
@@ -10,6 +16,7 @@ function! dropnote#mknoteinput(cate,ex)
     if !empty(a:cate)
         let l:dir = l:dir . '/' . a:cate
     endif
+    call s:mkdirifnoex(l:dir)
     call s:echodirectory(l:dir)
 
     let l:cate= a:cate
@@ -22,6 +29,7 @@ function! dropnote#mknoteinput(cate,ex)
     endif
 
     let l:tmpdir = l:dir  . '/' . l:subcate
+    call s:mkdirifnoex(l:tmpdir)
     call s:echodirectory(l:tmpdir)
 
     let l:filename = input('File Name:')
