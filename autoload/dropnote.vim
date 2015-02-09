@@ -9,7 +9,18 @@ function! s:mkdirifnoex(dir)
 endfunction
 
 function! dropnote#mkblog()
+    let s:local_edit_mode = 'tabedit'
     call dropnote#mknoteinput('blog','blog')
+endfunction
+
+function! dropnote#mkstorm()
+    let s:local_edit_mode = 'new'
+    call dropnote#mkbase('','storm')
+endfunction
+
+function! dropnote#mktodo()
+    let s:local_edit_mode = 'new'
+    call dropnote#mkbase('','todo')
 endfunction
 
 function! dropnote#mknoteinput(cate,ex)
@@ -41,14 +52,6 @@ function! s:echodirectory(directory)
     let l:directories=glob(fnameescape(a:directory).'/{,.}*', 1, 1)
     call map(l:directories, 'fnamemodify(v:val, ":h:t")')
     echo l:directories
-endfunction
-
-function! dropnote#mkstorm()
-    call dropnote#mkbase('','storm')
-endfunction
-
-function! dropnote#mktodo()
-    call dropnote#mkbase('','todo')
 endfunction
 
 function! dropnote#mkbase(filename,cate)
