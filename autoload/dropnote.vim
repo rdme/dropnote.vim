@@ -43,6 +43,14 @@ function! s:echodirectory(directory)
     echo l:directories
 endfunction
 
+function! dropnote#mkstorm()
+    call dropnote#mkbase('','storm')
+endfunction
+
+function! dropnote#mktodo()
+    call dropnote#mkbase('','todo')
+endfunction
+
 function! dropnote#mkbase(filename,cate)
     call dropnote#mkbasesubex(a:filename,a:cate,'','')
 endfunction
