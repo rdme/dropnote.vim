@@ -1,6 +1,6 @@
 
 let s:local_edit_mode = 'tabedit'
-let s:notes_dir = expand('$HOME/sld/Dropbox/notes')
+let g:global_notes_dir = expand('$HOME/sld/Dropbox/notes')
 
 function! s:mkdirifnoex(dir)
     if !isdirectory(a:dir)
@@ -24,7 +24,7 @@ function! dropnote#mktodo()
 endfunction
 
 function! dropnote#mknoteinput(cate,ex)
-    let l:dir = s:notes_dir
+    let l:dir = g:global_notes_dir
     if !empty(a:cate)
         let l:dir = l:dir . '/' . a:cate
     endif
@@ -75,7 +75,7 @@ function! dropnote#mkbasesubex(infilename,cate,subcate,ex)
         let l:ex = a:ex
     endif
 
-    let l:memo_dir = s:notes_dir . '/' . l:cate . '/'
+    let l:memo_dir = g:global_notes_dir . '/' . l:cate . '/'
     if !empty(a:subcate)
         let l:memo_dir = l:memo_dir . a:subcate .'/'
     endif
