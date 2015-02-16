@@ -1,6 +1,5 @@
 
 let s:local_edit_mode = 'tabedit'
-let g:global_notes_dir = expand('$HOME/Dropbox/notes')
 
 function! s:mkdirifnoex(dir)
     if !isdirectory(a:dir)

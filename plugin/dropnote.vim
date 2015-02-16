@@ -10,6 +10,7 @@ command! -nargs=0 MakeTodo call dropnote#mktodo()
 command! -nargs=0 MakeBlog call dropnote#mkblog()
 
 let g:loaded_dropnotevim = 1
+let g:global_notes_dir = expand('$HOME/Dropbox/notes')
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
