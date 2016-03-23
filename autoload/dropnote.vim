@@ -1,4 +1,3 @@
-
 let s:local_edit_mode = 'tabedit'
 
 function! s:mkdirifnoex(dir)
@@ -14,6 +13,11 @@ endfunction
 
 function! dropnote#mkstorm()
     let s:local_edit_mode = 'new'
+    call dropnote#mkbase('','storm')
+endfunction
+
+function! dropnote#mkstormo()
+    let s:local_edit_mode = 'open'
     call dropnote#mkbase('','storm')
 endfunction
 
@@ -50,6 +54,14 @@ endfunction
 function! s:echodirectory(directory)
     let l:directories=glob(fnameescape(a:directory).'/{,.}*', 1, 1)
     call map(l:directories, 'fnamemodify(v:val, ":h:t")')
+    echo a:directory . '--'
+    echo l:directories
+endfunction
+
+function! dropnote#echodir(dir)
+    let l:directories=glob(fnameescape(a:dir).'/{,.}*', 1, 1)
+    call map(l:directories, 'fnamemodify(v:val, ":h:t")')
+    echo a:dir . '   --'
     echo l:directories
 endfunction
 
@@ -58,7 +70,6 @@ function! dropnote#mkbase(filename,cate)
 endfunction
 
 function! dropnote#mkbasesubex(infilename,cate,subcate,ex)
-
     let l:filename = strftime('%Y%m%d')
     if !empty(a:infilename)
         let l:filename = a:infilename
