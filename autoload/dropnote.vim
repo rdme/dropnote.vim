@@ -70,29 +70,46 @@ function! dropnote#mkbase(filename,cate)
 endfunction
 
 function! dropnote#mkbasesubex(infilename,cate,subcate,ex)
+    echo a:infilename
+    echo a:cate
+    echo a:subcate
+    echo a:ex
+
     let l:filename = strftime('%Y%m%d')
     if !empty(a:infilename)
         let l:filename = a:infilename
     endif
+
+    echo l:filename
 
     let l:cate = 'other'
     if !empty(a:cate)
         let l:cate = a:cate
     endif
 
+    echo l:cate
+
     let l:ex = 'md'
     if !empty(a:ex)
         let l:ex = a:ex
     endif
 
+    echo l:ex
+
     let l:memo_dir = g:global_notes_dir . '/' . l:cate . '/'
     if !empty(a:subcate)
         let l:memo_dir = l:memo_dir . a:subcate .'/'
     endif
+
+    echo l:memo_dir
+
     let l:path = l:memo_dir . l:filename . '.' .l:ex
     if !isdirectory(l:memo_dir)
         call mkdir(l:memo_dir, 'p')
     endif
+
+    echo l:path
+
     execute s:local_edit_mode . ' ' . l:path 
 endfunction
 
