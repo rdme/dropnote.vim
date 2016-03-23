@@ -17,7 +17,7 @@ function! dropnote#mkstorm()
 endfunction
 
 function! dropnote#mkstormo()
-    let s:local_edit_mode = 'open'
+    let s:local_edit_mode = 'edit'
     call dropnote#mkbase('','storm')
 endfunction
 
