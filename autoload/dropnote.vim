@@ -80,7 +80,7 @@ function! dropnote#mkbasesubex(infilename,cate,subcate,ex)
         let l:cate = a:cate
     endif
 
-    let l:ex = 'md'
+    let l:ex = 'txt'
     if !empty(a:ex)
         let l:ex = a:ex
     endif
