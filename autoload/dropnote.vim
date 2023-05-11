@@ -21,6 +21,18 @@ function! dropnote#mkstormo()
     call dropnote#mkbase('','storm')
 endfunction
 
+function! dropnote#mkstormmonth()
+    let l:filename = strftime('%Y%m')
+    let s:local_edit_mode = 'new'
+    call dropnote#mkbase(l:filename,'storm')
+endfunction
+
+function! dropnote#mkstormmomtho()
+    let l:filename = strftime('%Y%m')
+    let s:local_edit_mode = 'rightbelow vnew'
+    call dropnote#mkbase(l:filename,'storm')
+endfunction
+
 function! dropnote#mktodo()
     let s:local_edit_mode = 'new'
     call dropnote#mkbase('','todo')
